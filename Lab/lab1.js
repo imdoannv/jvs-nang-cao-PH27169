@@ -56,9 +56,9 @@ console.log(team1, draw, team2);
 
 //6
 const printGoals = function(...players) {
-    console.log(players.length + "người đã ghi bàn");
+    console.log(players.length + "người đã ghi bàn.");
 };
 printGoals(...game.scored);
 //7
-team1 < team2 && console.log("Team1 thắng cao hơn");
-team1 > team2 && console.log("Team2 thắng cao hơn");
+team1 < team2 && console.log("Team1 thắng cao hơn !");
+team1 > team2 && console.log("Team2 thắng cao hơn !");
