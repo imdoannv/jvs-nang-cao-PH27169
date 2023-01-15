@@ -40,6 +40,8 @@ const restaurant = {
     }
 };
 
+// Video 107 s9
+
 console.log('---------------- OR --------------');
 
 // Use any data type, return Any data type, short-circuiting
@@ -74,3 +76,15 @@ restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 // Toán tử OR sẽ trả về giá trị trung thực đâu tiên của tất cả các toán hạng hoặc đơn giản là giá trị cuối cùng nếu tất cả giá trị của chúng đều sai(Dùng OR để đặt các giá trị mặc định)
 // Toán tử AND sẽ trả về giá trị falsy đầu tiên hoặc giá trị cuối cùng nếu tất cả chúng đều true(Dùng AND để thực thi mã trong toán hạng thứ 2 nếu toán hạng đầu tiên đúng)
+
+
+// Video 108 s9
+
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nulish: null and underfined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
