@@ -1,52 +1,70 @@
 'use strict'
 
+const weekdays = ['mon', 'tue', 'web', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+    [weekdays[3]]: {
+        open: 12,
+        close: 22,
+    },
+    [weekdays[4]]:{
+        open: 11,
+        close: 23,
+    },
+    [weekdays[5]]:{
+        open: 0, //Open 24 hours
+        close: 12+12,
+    },
+};
+
 const restaurant = {
     name: 'Classico Italiano',
     location: 'Via Angelo Tavanti 23, Firenze, Italy',
     categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
     starterMenu: ['Foccaia', 'Bruscheeta', 'Garlic Bread', 'Caprese Salab'],
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+    // ES6 enhanced object literals
+    openingHours,
 
-    openingHours: {
-        thu: {
-            open: 12,
-            close: 22,
-        },
-        fri:{
-            open: 11,
-            close: 23,
-        },
-        sat:{
-            open: 0, //Open 24 hours
-            close: 24,
-        },
-    },
+    // openingHours: {
+    //     thu: {
+    //         open: 12,
+    //         close: 22,
+    //     },
+    //     fri:{
+    //         open: 11,
+    //         close: 23,
+    //     },
+    //     sat:{
+    //         open: 0, //Open 24 hours
+    //         close: 24,
+    //     },
+    // },
 
-    order: function(starterIndex, mainIndex){
+    order(starterIndex, mainIndex){
         return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
     },
 
-    orderDelivery: function({starterIndex = 1, mainIndex = 0, time = '22:00',address}){
+    orderDelivery({starterIndex = 1, mainIndex = 0, time = '22:00',address}){
         console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
     },
 
-    orderPasta: function(ing1, ing2, ing3){
+    orderPasta(ing1, ing2, ing3){
         console.log(`Here is your declicious pasta width ${ing1}, ${ing2} and ${ing3}`);
     },
     
-    orderPizza: function (mainIngredient, ...otherInggredients) {
+    orderPizza(mainIngredient, ...otherInggredients) {
         console.log(mainIngredient);
         console.log(otherInggredients);
     },
 };
 // Video 111 s9
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-for (const item of menu) console.log(item);
+// for (const item of menu) console.log(item);
 
-for (const [i, el] of menu.entries()){
-    console.log(`${i+1}:$i{el}`);
-}
+// for (const [i, el] of menu.entries()){
+//     console.log(`${i+1}:$i{el}`);
+// }
 
 // console.log([...menu.entries()]);
 
