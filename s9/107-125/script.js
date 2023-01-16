@@ -57,47 +57,110 @@ const restaurant = {
         console.log(otherInggredients);
     },
 };
-// // Video 121 s9
+// // Video 122 s9
 const airline  = 'TAP Air Portugal';
-const plane = 'A320';
+console.log(airline.toLowerCase()); //Viet thuong
+console.log(airline.toUpperCase()); //Viet hoa
 
-console.log(plane[0]);
-console.log(plane[1]);
-console.log(plane[2]);
-console.log('B737'[0]);
+// Fix captitalization in name
+const passenger = 'jOnAs';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toLocaleUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
 
-console.log(airline.length);
-console.log('B737'.length);
+// Check mail
+const email = 'doannvph27169@fpt.vn';
+const loginEmail = ' Doannvph27169@fpt.vn \n';
 
-console.log(airline.indexOf('r')); //không tính dấu cách
-console.log(airline.lastIndexOf('r')); //Tính dấu cách
-console.log(airline.indexOf('portugal'));
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
 
-console.log(airline.slice(4));
-console.log(airline.slice(4,7));
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
 
-console.log(airline.slice(0, airline.indexOf(' ')));// Đầu tiên
-console.log(airline.slice(airline.lastIndexOf(' ')+1)); //Cuối cùng
+// Replacing
+const priceGB = '288,97&';
+const priceUS = priceGB.replace('&','$').replace(',','.');
+console.log(priceUS);
 
-console.log(airline.slice(-2));
-console.log(airline.slice(1, -1));
+const announcement = 'All passenger come to boarding door 23. Boarding door 23!';
 
-const checkMiddleSeat = function(seat){
-    // B and E are middle
-    const s = seat.slice(-1);
-    if( s === 'B' || s === 'E')
-        console.log('You got the middle seat !');
-    else console.log('You got lucky :/');
+console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Airb'));
+
+if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
+    console.log('Part of the NEW ARirbus family');
+}
+
+// Practice exercise
+const checkBaggage = function (items){
+    const baggage = items.toLowerCase();
+    if(baggage.includes('knife') || baggage.includes('gun')){
+        console.log('You are NOT allowed on broard');
+    }else {
+        console.log('Wellcome aboard!');
+    }
 };
 
-checkMiddleSeat('11B');
-checkMiddleSeat('23C');
-checkMiddleSeat('3E');
+checkBaggage ('I have a laptop, some Food and a pocket Knife');
+checkBaggage ('Socks and camera');
+checkBaggage('Got some nacks and a gun for protection');
 
-console.log(new String('Jonas'));
-console.log(typeof new String('Jonas'));
 
-console.log(typeof new String('Jonas').slice(1));
+
+
+
+
+
+// // // Video 121 s9
+// const airline  = 'TAP Air Portugal';
+// const plane = 'A320';
+
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log('B737'[0]);
+
+// console.log(airline.length);
+// console.log('B737'.length);
+
+// console.log(airline.indexOf('r')); //không tính dấu cách
+// console.log(airline.lastIndexOf('r')); //Tính dấu cách
+// console.log(airline.indexOf('portugal'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4,7));
+
+// console.log(airline.slice(0, airline.indexOf(' ')));// Đầu tiên
+// console.log(airline.slice(airline.lastIndexOf(' ')+1)); //Cuối cùng
+
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function(seat){
+//     // B and E are middle
+//     const s = seat.slice(-1);
+//     if( s === 'B' || s === 'E')
+//         console.log('You got the middle seat !');
+//     else console.log('You got lucky :/');
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
+
+// console.log(new String('Jonas'));
+// console.log(typeof new String('Jonas'));
+
+// console.log(typeof new String('Jonas').slice(1));
 
 
 // // Video 120 s9
