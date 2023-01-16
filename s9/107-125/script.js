@@ -57,31 +57,63 @@ const restaurant = {
         console.log(otherInggredients);
     },
 };
+// Video 116 s9
+// Tập hợp
+const ordersSet = new Set(['Pasta', 'Pizza','Pizza', 'Rissoto', 'Pasta', 'Pizza']);
+console.log(ordersSet);
+
+console.log(new Set('Jonas'));
+
+console.log(ordersSet.size);
+
+// kiem tra co hay khong
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+
+// Them san pham
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+// Xoa san pham
+ordersSet.delete('Risotto');
+// Xoa all
+// ordersSet.clear();
+console.log(ordersSet);
+
+for(const order of ordersSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+
+
 // Video 114 s9
 
 // Property names
-const properties = Object.keys(openingHours);
-console.log(properties);
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-let openStr = `We are open on ${properties.length} days: `;
+// let openStr = `We are open on ${properties.length} days: `;
 
-for (const day of properties){
-    openStr += `${day},`;
-}
-console.log(openStr);
+// for (const day of properties){
+//     openStr += `${day},`;
+// }
+// console.log(openStr);
 
-// Property Values
-const values = Object.values(openingHours);
-console.log(values);
+// // Property Values
+// const values = Object.values(openingHours);
+// console.log(values);
 
-// Entire object
-const entries = Object.entries(openingHours);
-// console.log(entries);
+// // Entire object
+// const entries = Object.entries(openingHours);
+// // console.log(entries);
 
-// [key , values]
-for(const [key, {open , close}] of entries){
-    console.log(`On ${key} we open at ${open} and close at ${close}`);
-}
+// // [key , values]
+// for(const [key, {open , close}] of entries){
+//     console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
 
 
 // Video 113 s9
@@ -173,22 +205,22 @@ const game = {
 
 // Video 115 s9
 // 1.
-for( const [i, player] of game.scored.entries()){
-    console.log(`Goal $(i+1): $(player)`);
-}
+// for( const [i, player] of game.scored.entries()){
+//     console.log(`Goal $(i+1): $(player)`);
+// }
 
-// 2.
-const odds = Object.values (game.odds);
-let average = 0;
-for(const odd of odds) average += odd;
-average /= odds.length;
-console.log(average);
+// // 2.
+// const odds = Object.values (game.odds);
+// let average = 0;
+// for(const odd of odds) average += odd;
+// average /= odds.length;
+// console.log(average);
 
-// 3.
-for (const [team, odd] of Object.entries(game.odds)){
-    const teamStr = team === 'x' ? 'draw' :`victory ${game[team]}`;
-    console.log(`Odd of ${teamStr} ${odd}`);
-}
+// // 3.
+// for (const [team, odd] of Object.entries(game.odds)){
+//     const teamStr = team === 'x' ? 'draw' :`victory ${game[team]}`;
+//     console.log(`Odd of ${teamStr} ${odd}`);
+// }
 // Odd of victory Bayern Munich 1.33
 // script.js:190 Odd of draw 3.25
 // script.js:190 Odd of victory Borrussia Dormund 6.5
