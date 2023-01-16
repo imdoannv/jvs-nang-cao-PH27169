@@ -57,8 +57,50 @@ const restaurant = {
         console.log(otherInggredients);
     },
 };
+// // Video 121 s9
+const airline  = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r')); //không tính dấu cách
+console.log(airline.lastIndexOf('r')); //Tính dấu cách
+console.log(airline.indexOf('portugal'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4,7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));// Đầu tiên
+console.log(airline.slice(airline.lastIndexOf(' ')+1)); //Cuối cùng
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function(seat){
+    // B and E are middle
+    const s = seat.slice(-1);
+    if( s === 'B' || s === 'E')
+        console.log('You got the middle seat !');
+    else console.log('You got lucky :/');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('Jonas'));
+console.log(typeof new String('Jonas'));
+
+console.log(typeof new String('Jonas').slice(1));
 
 
+// // Video 120 s9
 const gameEvents = new Map([
     [17, 'GOAL'],
     [36, 'Substitution'],
@@ -73,28 +115,28 @@ const gameEvents = new Map([
     [92, 'Yellow card'],
 ]);
 
-// // Video 120 s9
-// 1.
-const events = [...new Set(gameEvents.values())];
-console.log(events);
-// 2.
-gameEvents.delete(64);
 
-// 3.
-console.log(
-    `An event happend, on average, every ${90 / gameEvents.size} minutes`
-);
-const time = [...gameEvents.keys()].pop();
-console.log(time);
-console.log(
-    `An event happend, on average, every ${time / gameEvents.size} minutes`
-);
+// // 1.
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+// // 2.
+// gameEvents.delete(64);
 
-// 4.
-for (const [min, event] of gameEvents){
-    const half = min <= 45? 'FIRST' : 'SECOND';
-    console.log(`[${half} HALF] ${min}: ${event}`);
-}
+// // 3.
+// console.log(
+//     `An event happend, on average, every ${90 / gameEvents.size} minutes`
+// );
+// const time = [...gameEvents.keys()].pop();
+// console.log(time);
+// console.log(
+//     `An event happend, on average, every ${time / gameEvents.size} minutes`
+// );
+
+// // 4.
+// for (const [min, event] of gameEvents){
+//     const half = min <= 45? 'FIRST' : 'SECOND';
+//     console.log(`[${half} HALF] ${min}: ${event}`);
+// }
 
 
 // // Video 119 s9 Uu nhuoc dieem cua arrays, set,map,object
