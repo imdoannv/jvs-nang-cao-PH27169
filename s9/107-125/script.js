@@ -57,60 +57,82 @@ const restaurant = {
         console.log(otherInggredients);
     },
 };
-// // Video 123 s9
-// Phan tach Split
+// // // Video 124 s9
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
 
-// Split and join 
-console.log('a+very+nice+string'.split('+'));
-console.log('Jonas Schmedtmann'.split(' '));
 
-const [firstName , lasName] = 'Jonas Schmedmann'.split('');
-
-const newName = ['Mr.', firstName, lasName.toUpperCase()].join(' ');
-console.log(newName);
-
-const capitalizeName = function(name){
-    const names = name.split(' ');
-    const namesUpper = [];
-
-    for (const n of names){
-        // namesUpper.push(n[0].toUpperCase() + n.slice(1));
-        namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+document.querySelector('button').addEventListener('click', function(){
+    const text = document.querySelector('textarea').value;
+    const rows = text.split('\n');
+    for(const [i, row] of rows.entries){
+        const [first, second] = row.toLowerCase().trim().split('_');
+        
+        const output = `${first}${second.replace(
+            second[0],
+            second[0].toUpperCase()
+        )}`;
+        console.log(`${output.padEnd(20)} ${'<3'.repeat(i+1)} `);
     }
-    console.log(namesUpper.join(' '));
-}
-
-capitalizeName('jessica ann smith davis');
-capitalizeName('nguyen doan');
-
-//padding: const 
-const message = 'Go to gate 23!';
-console.log(message.padStart(20, '+').padEnd(30, '+'));
-console.log('Doanf'.padStart(20, '+').padEnd(30, '+'));
+});
 
 
-// che bot so giong card atm 
-const maskCreditCard = function (number){
-    const str = number + '';
-    const last = str.slice(-4);
-    return last.padStart(str.length, '*');
-};
- console.log(maskCreditCard(4643116561997));
- console.log(maskCreditCard('33454353124234365697'));
- console.log(maskCreditCard('464315453453416561997'));
 
-//  Lap lai Reapeat 
-const message2 = 'Bad weather, All Departues Delayed...';
-console.log(message2.repeat(5));
 
-const planesInLine = function(n){
-    console.log(`There are ${n} planes in line ${'<3'.repeat(n)}`);
-};
-planesInLine(5);
-planesInLine(3);
-planesInLine(12);
+// // Video 123 s9
+// // Phan tach Split
 
-// deverloper.mizilla.org mdn string replace
+// // Split and join 
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Jonas Schmedtmann'.split(' '));
+
+// const [firstName , lasName] = 'Jonas Schmedmann'.split('');
+
+// const newName = ['Mr.', firstName, lasName.toUpperCase()].join(' ');
+// console.log(newName);
+
+// const capitalizeName = function(name){
+//     const names = name.split(' ');
+//     const namesUpper = [];
+
+//     for (const n of names){
+//         // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//         namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//     }
+//     console.log(namesUpper.join(' '));
+// }
+
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('nguyen doan');
+
+// //padding: const 
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(20, '+').padEnd(30, '+'));
+// console.log('Doanf'.padStart(20, '+').padEnd(30, '+'));
+
+
+// // che bot so giong card atm 
+// const maskCreditCard = function (number){
+//     const str = number + '';
+//     const last = str.slice(-4);
+//     return last.padStart(str.length, '*');
+// };
+//  console.log(maskCreditCard(4643116561997));
+//  console.log(maskCreditCard('33454353124234365697'));
+//  console.log(maskCreditCard('464315453453416561997'));
+
+// //  Lap lai Reapeat 
+// const message2 = 'Bad weather, All Departues Delayed...';
+// console.log(message2.repeat(5));
+
+// const planesInLine = function(n){
+//     console.log(`There are ${n} planes in line ${'<3'.repeat(n)}`);
+// };
+// planesInLine(5);
+// planesInLine(3);
+// planesInLine(12);
+
+// // deverloper.mizilla.org mdn string replace
 
 
 
