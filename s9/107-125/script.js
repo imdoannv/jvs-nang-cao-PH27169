@@ -128,48 +128,73 @@ for(const [key, {open , close}] of entries){
 
 // console.log([...menu.entries()]);
 
-// Video 110 s9
-// const game = {
-//     team1: "Bayern Munich",
-//     team2: "Borrussia Dormund",
-//     players: [
-//         [
-//             "Neuer",
-//             "Pavard",
-//             "Martinez",
-//             "Alaba",
-//             "Davies",
-//             "Kimmich",
-//             "Goretzka",
-//             "Coman",
-//             "Muller",
-//             "Gnarby",
-//             "Lewandowki",
-//         ],
-//         [
-//             "Burki",
-//             "Schulz",
-//             "Hummels",
-//             "Akanji",
-//             "Hakimi",
-//             "Weigl",
-//             "Wisel",
-//             "Hazad",
-//             "Brand",
-//             "Sacnchi",
-//             "Gotze",
-//         ],
-//     ],
-//     score: "4:0",
-//     scored: ["Lewandowki", "Ganrby", "Lewandowki", "Hummels"],
-//     date: "Nov 9th 2037",
-//     odds: {
-//         team1: 1.33,
-//         x: 3.25,
-//         team2: 6.5,
-//     },
-// };
 
+const game = {
+    team1: "Bayern Munich",
+    team2: "Borrussia Dormund",
+    players: [
+        [
+            "Neuer",
+            "Pavard",
+            "Martinez",
+            "Alaba",
+            "Davies",
+            "Kimmich",
+            "Goretzka",
+            "Coman",
+            "Muller",
+            "Gnarby",
+            "Lewandowki",
+        ],
+        [
+            "Burki",
+            "Schulz",
+            "Hummels",
+            "Akanji",
+            "Hakimi",
+            "Weigl",
+            "Wisel",
+            "Hazad",
+            "Brand",
+            "Sacnchi",
+            "Gotze",
+        ],
+    ],
+    score: "4:0",
+    scored: ["Lewandowki", "Ganrby", "Lewandowki", "Hummels"],
+    date: "Nov 9th 2037",
+    odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+    },
+};
+
+
+// Video 115 s9
+// 1.
+for( const [i, player] of game.scored.entries()){
+    console.log(`Goal $(i+1): $(player)`);
+}
+
+// 2.
+const odds = Object.values (game.odds);
+let average = 0;
+for(const odd of odds) average += odd;
+average /= odds.length;
+console.log(average);
+
+// 3.
+for (const [team, odd] of Object.entries(game.odds)){
+    const teamStr = team === 'x' ? 'draw' :`victory ${game[team]}`;
+    console.log(`Odd of ${teamStr} ${odd}`);
+}
+// Odd of victory Bayern Munich 1.33
+// script.js:190 Odd of draw 3.25
+// script.js:190 Odd of victory Borrussia Dormund 6.5
+
+
+// Video 110 s9
 // // 1.
 // const [players1, players2] = game.players;
 // console.log(players1, players2);
