@@ -57,39 +57,67 @@ const restaurant = {
         console.log(otherInggredients);
     },
 };
-// Video 116 s9
-// Tập hợp
-const ordersSet = new Set(['Pasta', 'Pizza','Pizza', 'Rissoto', 'Pasta', 'Pizza']);
-console.log(ordersSet);
+// // Video 117 s9
+const rest = new Map();
+rest.set('name', 'Classsico Italiano');
+rest.set(1,'Firenze, Italy');
+console.log(rest.set(2,'Lisbon, Portugal'));
 
-console.log(new Set('Jonas'));
+rest.set('categories',['Italian', 'Pizzeria', 'Vegetarian', 'Organic']).set('open',11).set('close',23).set(true, 'We are open :D').set(false, 'We are closed :(');
 
-console.log(ordersSet.size);
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
 
-// kiem tra co hay khong
-console.log(ordersSet.has('Pizza'));
-console.log(ordersSet.has('Bread'));
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
-// Them san pham
-ordersSet.add('Garlic Bread');
-ordersSet.add('Garlic Bread');
-// Xoa san pham
-ordersSet.delete('Risotto');
-// Xoa all
-// ordersSet.clear();
-console.log(ordersSet);
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+rest.set([1,2], 'Test');
+rest.set(document.querySelector('h1','Heading'));
+console.log(rest);
+console.log(rest.size);
 
-for(const order of ordersSet) console.log(order);
-
-// Example
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
-const staffUnique = [...new Set(staff)];
-console.log(staffUnique);
-
-console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+console.log(rest.get(arr));
 
 
-// Video 114 s9
+
+
+// // Video 116 s9
+// // Tập hợp
+// const ordersSet = new Set(['Pasta', 'Pizza','Pizza', 'Rissoto', 'Pasta', 'Pizza']);
+// console.log(ordersSet);
+
+// // console.log(new Set('Jonas'));
+
+// // console.log(ordersSet.size);
+
+// // kiem tra co hay khong
+// // console.log(ordersSet.has('Pizza'));
+// // console.log(ordersSet.has('Bread'));
+
+// // Them san pham
+// ordersSet.add('Garlic Bread');
+// ordersSet.add('Garlic Bread');
+// // Xoa san pham
+// ordersSet.delete('Risotto');
+// // Xoa all
+// // ordersSet.clear();
+// console.log(ordersSet);
+
+// for(const order of ordersSet) console.log(order);
+
+// // Example
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+
+// console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+
+
+// // Video 114 s9
 
 // Property names
 // const properties = Object.keys(openingHours);
@@ -116,7 +144,7 @@ console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).s
 // }
 
 
-// Video 113 s9
+// // Video 113 s9
 // if(restaurant.openingHours && restaurant.openingHours.mon){
 //     console.log(restaurant.openingHours.mon.open);
 // }
@@ -149,7 +177,7 @@ console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).s
 
 
 
-// Video 111 s9
+// // Video 111 s9
 // const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 // for (const item of menu) console.log(item);
@@ -203,7 +231,7 @@ const game = {
 };
 
 
-// Video 115 s9
+// // Video 115 s9
 // 1.
 // for( const [i, player] of game.scored.entries()){
 //     console.log(`Goal $(i+1): $(player)`);
@@ -221,12 +249,12 @@ const game = {
 //     const teamStr = team === 'x' ? 'draw' :`victory ${game[team]}`;
 //     console.log(`Odd of ${teamStr} ${odd}`);
 // }
-// Odd of victory Bayern Munich 1.33
-// script.js:190 Odd of draw 3.25
-// script.js:190 Odd of victory Borrussia Dormund 6.5
+// // Odd of victory Bayern Munich 1.33
+// // script.js:190 Odd of draw 3.25
+// //script.js:190 Odd of victory Borrussia Dormund 6.5
 
 
-// Video 110 s9
+// // Video 110 s9
 // // 1.
 // const [players1, players2] = game.players;
 // console.log(players1, players2);
@@ -256,7 +284,7 @@ const game = {
 // team1 < team2 && console.log('Team 1 is more likely to win');
 // team1 > team2 && console.log('Team 2 is more likely to win');
 
-// Video 109 s9
+// // Video 109 s9
 // const rest1 = {
 //     name: 'Capri',
 //     // numGuests: 20,
@@ -287,7 +315,7 @@ const game = {
 // console.log(rest1);
 // console.log(rest2);
 
-// Video 108 s9
+// // Video 108 s9
 
 // restaurant.numGuests = 0;
 // const guests = restaurant.numGuests || 10;
@@ -297,7 +325,7 @@ const game = {
 // const guestCorrect = restaurant.numGuests ?? 10;
 // console.log(guestCorrect);
 
-// Video 107 s9
+// // Video 107 s9
 
 // console.log('---------------- OR --------------');
 
