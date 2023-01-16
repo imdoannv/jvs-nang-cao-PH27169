@@ -37,79 +37,89 @@ const restaurant = {
     orderPizza: function (mainIngredient, ...otherInggredients) {
         console.log(mainIngredient);
         console.log(otherInggredients);
-    }
-};
-
-// Video 110 s9
-const game = {
-    team1: "Bayern Munich",
-    team2: "Borrussia Dormund",
-    players: [
-        [
-            "Neuer",
-            "Pavard",
-            "Martinez",
-            "Alaba",
-            "Davies",
-            "Kimmich",
-            "Goretzka",
-            "Coman",
-            "Muller",
-            "Gnarby",
-            "Lewandowki",
-        ],
-        [
-            "Burki",
-            "Schulz",
-            "Hummels",
-            "Akanji",
-            "Hakimi",
-            "Weigl",
-            "Wisel",
-            "Hazad",
-            "Brand",
-            "Sacnchi",
-            "Gotze",
-        ],
-    ],
-    score: "4:0",
-    scored: ["Lewandowki", "Ganrby", "Lewandowki", "Hummels"],
-    date: "Nov 9th 2037",
-    odds: {
-        team1: 1.33,
-        x: 3.25,
-        team2: 6.5,
     },
 };
+// Video 111 s9
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-// 1.
-const [players1, players2] = game.players;
-console.log(players1, players2);
-//  2.
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
+for (const item of menu) console.log(item);
 
-// 3.
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+for (const [i, el] of menu.entries()){
+    console.log(`${i+1}:$i{el}`);
+}
 
-//  4.
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
+// console.log([...menu.entries()]);
 
-// 5.
-const {odds: {team1, x: draw, team2},} = game;
-console.log(team1,draw,team2);
+// Video 110 s9
+// const game = {
+//     team1: "Bayern Munich",
+//     team2: "Borrussia Dormund",
+//     players: [
+//         [
+//             "Neuer",
+//             "Pavard",
+//             "Martinez",
+//             "Alaba",
+//             "Davies",
+//             "Kimmich",
+//             "Goretzka",
+//             "Coman",
+//             "Muller",
+//             "Gnarby",
+//             "Lewandowki",
+//         ],
+//         [
+//             "Burki",
+//             "Schulz",
+//             "Hummels",
+//             "Akanji",
+//             "Hakimi",
+//             "Weigl",
+//             "Wisel",
+//             "Hazad",
+//             "Brand",
+//             "Sacnchi",
+//             "Gotze",
+//         ],
+//     ],
+//     score: "4:0",
+//     scored: ["Lewandowki", "Ganrby", "Lewandowki", "Hummels"],
+//     date: "Nov 9th 2037",
+//     odds: {
+//         team1: 1.33,
+//         x: 3.25,
+//         team2: 6.5,
+//     },
+// };
 
-// 6.
-const printGoals = function (...players){
-    console.log(players);
-    console.log(`${players.length} goals were scored`);
-};
-printGoals(...game.scored);
+// // 1.
+// const [players1, players2] = game.players;
+// console.log(players1, players2);
+// //  2.
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
 
-// 7.
-team1 < team2 && console.log('Team 1 is more likely to win');
-team1 > team2 && console.log('Team 2 is more likely to win');
+// // 3.
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
+
+// //  4.
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
+
+// // 5.
+// const {odds: {team1, x: draw, team2},} = game;
+// console.log(team1,draw,team2);
+
+// // 6.
+// const printGoals = function (...players){
+//     console.log(players);
+//     console.log(`${players.length} goals were scored`);
+// };
+// printGoals(...game.scored);
+
+// // 7.
+// team1 < team2 && console.log('Team 1 is more likely to win');
+// team1 > team2 && console.log('Team 2 is more likely to win');
 
 // Video 109 s9
 // const rest1 = {
