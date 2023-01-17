@@ -64,34 +64,61 @@
 
 
 
-// // Video 131 s10
+// // // Video 131 s10
 
-const oneWord = function(str){
-    return str.replace(/ /g, '').toLowerCase();
+// const oneWord = function(str){
+//     return str.replace(/ /g, '').toLowerCase();
+// };
+
+// const upperFirstWord = function(str){
+//     const [first, ...others] = str.split(' ');
+//     return [first.toUpperCase(), ...others].join(' ');
+// };
+
+// //Higher-order function 
+// const transformer = function(str, fn){
+//     console.log(`Original string: ${str}`);
+//     console.log(`Transformed string: ${fn(str)}`);
+
+//     console.log(`Transformed string: ${fn.name}`);
+// };
+
+// transformer('JavaScipt is the best!', upperFirstWord);
+// transformer('JavaScipt is the best!', oneWord);
+
+
+// // Js uses callbacks all the time -> gọi mói lúc
+// const hight5 = function(){
+//     console.log('<3');
+// }
+
+// document.body.addEventListener('click', hight5);
+
+// ['Jonas', 'Martha', 'Doan'].forEach(hight5);
+
+
+
+
+
+
+// // // Video 132 s10
+
+const greet = function(greeting){
+    return function(name){
+        console.log(`${greeting} ${name}`);
+    };
 };
 
-const upperFirstWord = function(str){
-    const [first, ...others] = str.split(' ');
-    return [first.toUpperCase(), ...others].join(' ');
-};
+const greeterHey = greet('Hey');
+greeterHey('Jonas'); //Hey Jonas
 
-//Higher-order function 
-const transformer = function(str, fn){
-    console.log(`Original string: ${str}`);
-    console.log(`Transformed string: ${fn(str)}`);
-
-    console.log(`Transformed string: ${fn.name}`);
-};
-
-transformer('JavaScipt is the best!', upperFirstWord);
-transformer('JavaScipt is the best!', oneWord);
+greeterHey('Steven'); //Hey Steven
 
 
-// Js uses callbacks all the time -> gọi mói lúc
-const hight5 = function(){
-    console.log('<3');
-}
+greet('Hello')('Doanf'); //Hello Doanf
 
-document.body.addEventListener('click', hight5);
 
-['Jonas', 'Martha', 'Doan'].forEach(hight5);
+// Challenge
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+
+greetArr('Hi')('Jonas');
