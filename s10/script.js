@@ -130,27 +130,40 @@
 
 
 
-// // // Video 136 s10
-// Biểu thức hàm được gọi ngay lập tức
-const runOnce = function(){
-    console.log('This will never run again');
-};
-runOnce();
+// // // // Video 136 s10
+// // Biểu thức hàm được gọi ngay lập tức
+// const runOnce = function(){
+//     console.log('This will never run again');
+// };
+// runOnce();
 
-// IIFE
+// // IIFE
+// (function(){
+//     console.log('This will never run again');
+//     const isPrivate = 23;
+// })();
+
+// // console.log(isPrivate);
+
+// (() => console.log('This will ALSO never run again'))();
+
+// {
+//     const isPrivate = 23; //Not use
+//     var notPrivate = 46;  // Oke use
+// }
+
+// // console.log(isPrivate);
+// console.log(notPrivate);
+
+
+
+
+// // // // Video 139 s10 --  finish section 10
 (function(){
-    console.log('This will never run again');
-    const isPrivate = 23;
-})();
+    const header = document.querySelector('h1');
+    header.style.color = 'red';
 
-// console.log(isPrivate);
-
-(() => console.log('This will ALSO never run again'))();
-
-{
-    const isPrivate = 23; //Not use
-    var notPrivate = 46;  // Oke use
-}
-
-// console.log(isPrivate);
-console.log(notPrivate);
+    document.querySelector('body').addEventListener('click',  function(){
+        header.style.color = 'green';
+    });
+})(); 
