@@ -103,22 +103,54 @@
 
 // // // Video 132 s10
 
-const greet = function(greeting){
-    return function(name){
-        console.log(`${greeting} ${name}`);
-    };
+// const greet = function(greeting){
+//     return function(name){
+//         console.log(`${greeting} ${name}`);
+//     };
+// };
+
+// const greeterHey = greet('Hey');
+// greeterHey('Jonas'); //Hey Jonas
+
+// greeterHey('Steven'); //Hey Steven
+
+
+// greet('Hello')('Doanf'); //Hello Doanf
+
+
+// // Challenge
+// const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+
+// greetArr('Hi')('Jonas');
+
+
+
+
+
+
+
+
+// // // Video 136 s10
+// Biểu thức hàm được gọi ngay lập tức
+const runOnce = function(){
+    console.log('This will never run again');
 };
+runOnce();
 
-const greeterHey = greet('Hey');
-greeterHey('Jonas'); //Hey Jonas
+// IIFE
+(function(){
+    console.log('This will never run again');
+    const isPrivate = 23;
+})();
 
-greeterHey('Steven'); //Hey Steven
+// console.log(isPrivate);
 
+(() => console.log('This will ALSO never run again'))();
 
-greet('Hello')('Doanf'); //Hello Doanf
+{
+    const isPrivate = 23; //Not use
+    var notPrivate = 46;  // Oke use
+}
 
-
-// Challenge
-const greetArr = greeting => name => console.log(`${greeting} ${name}`);
-
-greetArr('Hi')('Jonas');
+// console.log(isPrivate);
+console.log(notPrivate);
