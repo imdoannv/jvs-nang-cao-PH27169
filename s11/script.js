@@ -80,37 +80,58 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 
 
-// // // // Video 142 s11
+// // // // // Video 142 s11
 
-let arr = ['a', 'b', 'c', 'd', 'e'];
-
-
-// Slice
-console.log(arr.slice(2)); //['c', 'd', 'e']
-console.log(arr.slice(2,4)); // ['c', 'd']
-console.log(arr.slice(-2)); //  ['d', 'e']
-console.log(arr.slice(-1)); // ['e']
-console.log(arr.slice(1, -2)); // ['b', 'c']
-console.log(arr.slice()); //  ['a', 'b', 'c', 'd', 'e']
-console.log([...arr]); // ['a', 'b', 'c', 'd', 'e']
-
-// Splice
-// Search: mdn array aplice developer.mozilla.org
-arr.splice(-1); console.log(arr); //['a', 'b', 'c', 'd']
-arr.splice(1, 2); console.log(arr); // ['a', 'd']
+// let arr = ['a', 'b', 'c', 'd', 'e'];
 
 
-// Reverse : Đảo ngược
-arr = ['a', 'b', 'c', 'd', 'e'];
-const arr2 = ['j', 'i', 'h', 'g', 'f'];
-console.log(arr2.reverse()); //  ['f', 'g', 'h', 'i', 'j']
-console.log(arr2);  // ['f', 'g', 'h', 'i', 'j']
+// // Slice
+// console.log(arr.slice(2)); //['c', 'd', 'e']
+// console.log(arr.slice(2,4)); // ['c', 'd']
+// console.log(arr.slice(-2)); //  ['d', 'e']
+// console.log(arr.slice(-1)); // ['e']
+// console.log(arr.slice(1, -2)); // ['b', 'c']
+// console.log(arr.slice()); //  ['a', 'b', 'c', 'd', 'e']
+// console.log([...arr]); // ['a', 'b', 'c', 'd', 'e']
 
-// Concat : Nối 2 mảng
-const letters = arr.concat(arr2);
-console.log(letters); //['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'] 
-console.log(...arr, ...arr2); //a b c d e f g h i j
+// // Splice
+// // Search: mdn array aplice developer.mozilla.org
+// arr.splice(-1); console.log(arr); //['a', 'b', 'c', 'd']
+// arr.splice(1, 2); console.log(arr); // ['a', 'd']
 
-// Join : Nối
-console.log(letters.join(' - ')); 
-//a - b - c - d - e - f - g - h - i - j
+
+// // Reverse : Đảo ngược
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// const arr2 = ['j', 'i', 'h', 'g', 'f'];
+// console.log(arr2.reverse()); //  ['f', 'g', 'h', 'i', 'j']
+// console.log(arr2);  // ['f', 'g', 'h', 'i', 'j']
+
+// // Concat : Nối 2 mảng
+// const letters = arr.concat(arr2);
+// console.log(letters); //['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'] 
+// console.log(...arr, ...arr2); //a b c d e f g h i j
+
+// // Join : Nối
+// console.log(letters.join(' - ')); 
+// //a - b - c - d - e - f - g - h - i - j
+
+
+
+
+
+
+
+// // // // Video 143 s11
+// At method 
+const arr = [23, 11, 64];
+console.log(arr[arr.length - 1]);//23
+console.log(arr.at(0)); //23
+
+// Getting last array element 
+console.log(arr[arr.length -1]);//64
+console.log(arr.slice(-1)[0]);//64
+console.log(arr.at(-1)); //64
+
+
+console.log('doan'.at(0)); //d
+console.log('doan'.at(-1)); //n
