@@ -71,7 +71,7 @@ const currencies = new Map([
     ['VND', 'Việt Nam Đồng'],
 ])
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////
 
@@ -122,16 +122,51 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 
 // // // // Video 143 s11
-// At method 
-const arr = [23, 11, 64];
-console.log(arr[arr.length - 1]);//23
-console.log(arr.at(0)); //23
+// // At method 
+// const arr = [23, 11, 64];
+// console.log(arr[arr.length - 1]);//23
+// console.log(arr.at(0)); //23
 
-// Getting last array element 
-console.log(arr[arr.length -1]);//64
-console.log(arr.slice(-1)[0]);//64
-console.log(arr.at(-1)); //64
+// // Getting last array element 
+// console.log(arr[arr.length -1]);//64
+// console.log(arr.slice(-1)[0]);//64
+// console.log(arr.at(-1)); //64
 
 
-console.log('doan'.at(0)); //d
-console.log('doan'.at(-1)); //n
+// console.log('doan'.at(0)); //d
+// console.log('doan'.at(-1)); //n
+
+
+
+
+
+
+// // // // Video 144 s11
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+
+// for(const movement of movements){
+for(const [i,movement] of movements.entries()){
+    if(movement > 0){
+        console.log(`Movement ${i + 1}: You deposited ${movement}`);
+    }else{
+        console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+        // Math.abs() lấy giá trị tuyệt đối
+    }
+}
+
+
+console.log('=================ForEach==============');
+
+movements.forEach(function(mov, i, arr){
+    if(mov > 0){
+        console.log(`Movement ${i + 1}: You deposited ${mov}`);
+    }else{
+        console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+        // Math.abs() lấy giá trị tuyệt đối
+    }
+});
+
+// 0: function(200)
+// 1: function(450)
+// 2: function(400)
