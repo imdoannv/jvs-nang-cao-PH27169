@@ -65,13 +65,13 @@ const inputClosePin = document.querySelector('.login__input--pin');
 ///////////////////////////////////////////////////
 /// LECTURES
 
-const currencies = new Map([
-    ['USD', 'United States dollar'],
-    ['EUR', 'Euro'],
-    ['VND', 'Việt Nam Đồng'],
-])
+// // const currencies = new Map([
+// //     ['USD', 'United States dollar'],
+// //     ['EUR', 'Euro'],
+// //     ['VND', 'Việt Nam Đồng'],
+// // ])
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////
 
@@ -141,32 +141,55 @@ const currencies = new Map([
 
 
 
-// // // // Video 144 s11
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// // // // // Video 144 s11
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 
-// for(const movement of movements){
-for(const [i,movement] of movements.entries()){
-    if(movement > 0){
-        console.log(`Movement ${i + 1}: You deposited ${movement}`);
-    }else{
-        console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
-        // Math.abs() lấy giá trị tuyệt đối
-    }
-}
+// // for(const movement of movements){
+// for(const [i,movement] of movements.entries()){
+//     if(movement > 0){
+//         console.log(`Movement ${i + 1}: You deposited ${movement}`);
+//     }else{
+//         console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+//         // Math.abs() lấy giá trị tuyệt đối
+//     }
+// }
 
 
-console.log('=================ForEach==============');
+// console.log('=================ForEach==============');
 
-movements.forEach(function(mov, i, arr){
-    if(mov > 0){
-        console.log(`Movement ${i + 1}: You deposited ${mov}`);
-    }else{
-        console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
-        // Math.abs() lấy giá trị tuyệt đối
-    }
+// movements.forEach(function(mov, i, arr){
+//     if(mov > 0){
+//         console.log(`Movement ${i + 1}: You deposited ${mov}`);
+//     }else{
+//         console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+//         // Math.abs() lấy giá trị tuyệt đối
+//     }
+// });
+
+// // 0: function(200)
+// // 1: function(450)
+// // 2: function(400)
+
+
+
+
+// // // // // Video 145 s11
+
+// MAP
+const currencies = new Map([
+    ['USD', 'United States dollar'],
+    ['EUR', 'Euro'],
+    ['VND', 'Việt Nam Đồng'],
+])
+
+currencies.forEach(function (value, key, map){
+    console.log(`${key}: ${value}`);
 });
 
-// 0: function(200)
-// 1: function(450)
-// 2: function(400)
+// SET 
+const currenciesUnique = new Set(['USD', 'VND', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+currenciesUnique.forEach(function(value, _, map){
+    console.log(`${value}:${value}`);
+})
