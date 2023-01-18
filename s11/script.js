@@ -64,25 +64,25 @@ const inputClosePin = document.querySelector('.login__input--pin');
 
 /////////////////////////////////////////////////
 // // // // // // Video 147 s11
-const displayMovements = function (movements){
-    containerMovements.innerHTML = '';
-    // .textContent = 0
-    movements.forEach(function(mov, i){
-        const type = mov > 0 ? 'deposit' : 'withdrawal';
-        const html = `
+// const displayMovements = function (movements){
+//     containerMovements.innerHTML = '';
+//     // .textContent = 0
+//     movements.forEach(function(mov, i){
+//         const type = mov > 0 ? 'deposit' : 'withdrawal';
+//         const html = `
         
-            <div class="movements__row">
-                <div class="movemnts__type movemnts__type--${type}">${i+1} ${type}</div>
-                <div class="movemnts__value">${mov}</div>
-            </div>
-        `;
+//             <div class="movements__row">
+//                 <div class="movemnts__type movemnts__type--${type}">${i+1} ${type}</div>
+//                 <div class="movemnts__value">${mov}</div>
+//             </div>
+//         `;
 
-        containerMovements.inserAdjacentHTML('afterbegin', html);
-    });
-};
-displayMovements(account1.movements);
+//         containerMovements.inserAdjacentHTML('afterbegin', html);
+//     });
+// };
+// displayMovements(account1.movements);
 
-// console.log(containerMovements.innerHTML);
+// // console.log(containerMovements.innerHTML);
 
 
 
@@ -217,3 +217,26 @@ displayMovements(account1.movements);
 // currenciesUnique.forEach(function(value, _, map){
 //     console.log(`${value}:${value}`);
 // })
+
+
+// // // // // // Video 148  s11
+
+const checkDogs = function (dogsJulia, dogsKate){
+    const dogsJuliaCorrected = dogsJulia.slice();
+    dogsJuliaCorrected.splice(0, 1);
+    dogsJuliaCorrected.splice(-2);
+    // dogsJulia.slice(1, 3);
+    
+    const dogs = dogsJuliaCorrected.concat(dogsKate);
+    console.log(dogs);
+
+    dogs.forEach(function (dog, i){
+        if(dog >= 3){
+            console.log(`Dog number ${i+1} is an adult, and is ${dog} years old`);
+        }else{
+            console.log(`Dog number ${i+1} is still a puppy`);
+        }
+    });
+};
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
