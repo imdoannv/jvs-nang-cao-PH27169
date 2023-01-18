@@ -76,7 +76,7 @@ nav{
     grid-template-columns: 4fr 3fr;
     grid-template-rows: auto repeat(3,15 rem) auto;
     gap: 2rem;
-    opacity: 0;
+    /* opacity: 0; */
     transform: all 1s;
 }
 .balance{

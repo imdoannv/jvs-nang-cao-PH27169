@@ -45,7 +45,7 @@ const labelSumInterest = document.querySelector('.balance_value--interest');
 const labelTimer = document.querySelector('.timer');
 
 const containerApp = document.querySelector('.app');
-const containerMovemts = document.querySelector('.movements');
+const containerMovements = document.querySelector('.movements');
 
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
@@ -60,6 +60,30 @@ const inputTransferAmount = document.querySelector('.login__input--amount');
 const inputLoanAmount = document.querySelector('.login__input--loan--amount');
 const inputCloseUsername = document.querySelector('.login__input--user');
 const inputClosePin = document.querySelector('.login__input--pin');
+
+
+/////////////////////////////////////////////////
+// // // // // // Video 147 s11
+const displayMovements = function (movements){
+    containerMovements.innerHTML = '';
+    // .textContent = 0
+    movements.forEach(function(mov, i){
+        const type = mov > 0 ? 'deposit' : 'withdrawal';
+        const html = `
+        
+            <div class="movements__row">
+                <div class="movemnts__type movemnts__type--${type}">${i+1} ${type}</div>
+                <div class="movemnts__value">${mov}</div>
+            </div>
+        `;
+
+        containerMovements.inserAdjacentHTML('afterbegin', html);
+    });
+};
+displayMovements(account1.movements);
+
+// console.log(containerMovements.innerHTML);
+
 
 
 ///////////////////////////////////////////////////
@@ -174,22 +198,22 @@ const inputClosePin = document.querySelector('.login__input--pin');
 
 
 
-// // // // // Video 145 s11
+// // // // // // Video 145 s11
 
-// MAP
-const currencies = new Map([
-    ['USD', 'United States dollar'],
-    ['EUR', 'Euro'],
-    ['VND', 'Việt Nam Đồng'],
-])
+// // MAP
+// const currencies = new Map([
+//     ['USD', 'United States dollar'],
+//     ['EUR', 'Euro'],
+//     ['VND', 'Việt Nam Đồng'],
+// ])
 
-currencies.forEach(function (value, key, map){
-    console.log(`${key}: ${value}`);
-});
+// currencies.forEach(function (value, key, map){
+//     console.log(`${key}: ${value}`);
+// });
 
-// SET 
-const currenciesUnique = new Set(['USD', 'VND', 'USD', 'EUR', 'EUR']);
-console.log(currenciesUnique);
-currenciesUnique.forEach(function(value, _, map){
-    console.log(`${value}:${value}`);
-})
+// // SET 
+// const currenciesUnique = new Set(['USD', 'VND', 'USD', 'EUR', 'EUR']);
+// console.log(currenciesUnique);
+// currenciesUnique.forEach(function(value, _, map){
+//     console.log(`${value}:${value}`);
+// })
