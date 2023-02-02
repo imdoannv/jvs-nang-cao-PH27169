@@ -82,20 +82,20 @@ const inputClosePin = document.querySelector('.login__input--pin');
 // };
 // displayMovements(account1.movements);
 
-const calsDisplaySummary = function(movements){
-    const incomes = movements
+const calsDisplaySummary = function(acc){
+    const incomes = acc.movements
         .filter(mov => mov > 0)
         .reduce((acc, mov) => acc + mov,0);
         labelSumIn.textContent = `${incomes} EUR`;
 
-        const out = movements
+        const out = acc.movements
         .filter(mov => mov < 0)
         .reduce((acc, mov) => acc + mov, 0);
         // lableSumOut.textContent = `${Math.abs(out)} EUR`;
 
-        const interest = movements
+        const interest = acc.movements
         .filter(mov => mov > 0)
-        .map(deposits => (deposits * 1.2) / 100)
+        .map(deposits => (deposits * acc.interestRate) / 100)
         .filter((int, i, arr) => {
             console.log(arr);
             return int >= 1;
@@ -138,6 +138,36 @@ console.log(accounts);
 // console.log(createUsernames('Nguyen Van Doan'));
 
 
+// // Event handler
+// // // // // // // Video 158 s11
+btnLogin.addEventListener('click', function(e){
+    //Prevent form from submitting
+    e.preventDefault();
+
+    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+    console.log(currentAccount);
+
+    if(currentAccount?.pin === Number(inputLoginPin.value)){
+        // console.log('LOGIN');
+
+        // Display UI and message
+        labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+        containerApp.getElementsByClassName.opacity = 100;
+
+        // Clear input fields
+        inputLoginUsername.value = inputLoginPin = '';
+        inputLoginPin.blur();
+
+        // Display movements
+        displayMovemnts(currentAccount.movements);
+
+        // Display balance
+        calcDisplayBalance(currentAccount.movements);
+
+        // Display summarry
+        calcDisplaySummary(currentAccount);
+    }
+});
 
 
 ///////////////////////////////////////////////////
