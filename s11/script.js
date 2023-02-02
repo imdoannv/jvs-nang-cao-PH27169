@@ -64,25 +64,25 @@ const inputClosePin = document.querySelector('.login__input--pin');
  
 /////////////////////////////////////////////////
 // // // // // // Video 147 s11
-const displayMovements = function (movements, sort =false){
-    containerMovements.innerHTML = '';
+// const displayMovements = function (movements, sort =false){
+    // containerMovements.innerHTML = '';
     // .textContent = 0
 
-    const movs =sort? movements.slice().sort((a,b) => a -b): movements;
-    movements.forEach(function(mov, i){
-        const type = mov > 0 ? 'deposit' : 'withdrawal';
-        const html = `
+    // const movs =sort? movements.slice().sort((a,b) => a -b): movements;
+//     movements.forEach(function(mov, i){
+//         const type = mov > 0 ? 'deposit' : 'withdrawal';
+//         const html = `
         
-            <div class="movements__row">
-                <div class="movemnts__type movemnts__type--${type}">${i+1} ${type}</div>
-                <div class="movemnts__value">${mov}</div>
-            </div>
-        `;
+//             <div class="movements__row">
+//                 <div class="movemnts__type movemnts__type--${type}">${i+1} ${type}</div>
+//                 <div class="movemnts__value">${mov}</div>
+//             </div>
+//         `;
 
-        containerMovements.inserAdjacentHTML('afterbegin', html);
-    });
-};
-displayMovements(account1.movements);
+//         containerMovements.inserAdjacentHTML('afterbegin', html);
+//     });
+// };
+// displayMovements(account1.movements);
 
 const calsDisplaySummary = function(acc){
     const incomes = acc.movements
@@ -250,11 +250,11 @@ btnLogin.addEventListener('click', function(e){
 
 let sorted = false;
 
-btnSort.addEventListener('click', function(e){
-    e.preventDefault();
-    displayMovements(currentAccount.movements, !sorted);
-    sorted = !sorted;
-})
+// btnSort.addEventListener('click', function(e){
+//     e.preventDefault();
+//     displayMovements(currentAccount.movements, !sorted);
+//     sorted = !sorted;
+// })
 ///////////////////////////////////////////////////
 /// LECTURES
 
@@ -582,31 +582,31 @@ console.log(movements.filter(deposit));
 
 // // // // // // // Video 162 s11
 
-const arr = [[1,2,3], [4,5,6], 7, 8];
-console.log(arr.flat());
+// const arr = [[1,2,3], [4,5,6], 7, 8];
+// console.log(arr.flat());
 
-const arrDeep = [[[1,2],3], [4,[5,6]], 7, 8];
-console.log(arrDeep.flat(2));
+// const arrDeep = [[[1,2],3], [4,[5,6]], 7, 8];
+// console.log(arrDeep.flat(2));
 
-// const accountMovements = accounts.map(acc => acc.movements);
-// console.log(accountMovements);
-// const allMovements = accountMovements.flat();
-// console.log(allMovements);
-// const overalBalance = allMovements.reduce((acc, mov) => acc+ mov, 0);
+// // const accountMovements = accounts.map(acc => acc.movements);
+// // console.log(accountMovements);
+// // const allMovements = accountMovements.flat();
+// // console.log(allMovements);
+// // const overalBalance = allMovements.reduce((acc, mov) => acc+ mov, 0);
 
 
-// flat
-const overalBalance = accounts
-                .map(acc => acc.movements) 
-                .flat()
-                .reduce((acc,mov) => acc + mov, 0);
-console.log(overalBalance);
+// // flat
+// const overalBalance = accounts
+//                 .map(acc => acc.movements) 
+//                 .flat()
+//                 .reduce((acc,mov) => acc + mov, 0);
+// console.log(overalBalance);
 
-// flat Map
-const overalBalance2 = accounts
-                .flatMap(acc => acc.movements) 
-                .reduce((acc,mov) => acc + mov, 0);
-console.log(overalBalance2);
+// // flat Map
+// const overalBalance2 = accounts
+//                 .flatMap(acc => acc.movements) 
+//                 .reduce((acc,mov) => acc + mov, 0);
+// console.log(overalBalance2);
 
 
 
@@ -646,3 +646,37 @@ console.log(movements);
 
 movements.sort((a,b) => b -a);
 console.log(movements);
+
+
+// // // // // // // Video 164 s11
+const arr = [1, 2,3,4,5,6,7];
+console.log(new Array(1,2,3,4,5,6,7));
+
+// Emprty arrays + fill method 
+
+const x = new Array(7);
+console(x);
+console.log(x.map(() => 5));
+x.fill(1,3,5);
+x.fill(1);
+console.log(x);
+
+arr.fill(23,2,6);
+console.log(arr);
+
+// Array.from
+const y = Array.from({length: 7}, () => 1);
+console.log(y);
+
+const z = Array.from({length: 7}, (_, i) => i+  1);
+console.log(z);
+
+labelBalance.addEventListener('click', function(){
+    const movementSUI = Array.from(
+        document.querySelectorAll('.movemnts__value'),
+        el => Number(el.textContent.replace('EUR', ''))
+    );
+    console.log(movementSUI);
+
+    const movementsUI2 = [...document.querySelectorAll('movements__value')];
+});
