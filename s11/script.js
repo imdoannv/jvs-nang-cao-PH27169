@@ -91,7 +91,7 @@ const calsDisplaySummary = function(movements){
         const out = movements
         .filter(mov => mov < 0)
         .reduce((acc, mov) => acc + mov, 0);
-        lableSumOut.textContent = `${Math.abs(out)} EUR`;
+        // lableSumOut.textContent = `${Math.abs(out)} EUR`;
 
         const interest = movements
         .filter(mov => mov > 0)
@@ -101,9 +101,9 @@ const calsDisplaySummary = function(movements){
             return int >= 1;
         })
         .reduce((acc, int) => acc + int, 0);
-        labelSumInterest.textContent = `${interest} EUR`;
+        // labelSumInterest.textContent = `${interest} EUR`;
 };
-calcDisplaySummary(account1.movements);
+// calcDisplaySummary(account1.movements);
 
 
 const calsDisplayBalance = function (movements){
@@ -410,3 +410,23 @@ const totalDepositsUSD = movements
     .reduce((acc, mov) => acc + mov, 0);
 
 console.log(totalDepositsUSD);
+
+
+// // // // // // // // Video 156 s11
+const calcAverageHumanAge2 = function (ages) {
+    const humanAges = ages.map(age => (age <= 2 ? 2 * age : 16 + age *4));
+    const adults = humanAges.filter(age => age >= 18);
+    const average = adults.reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+    return average;
+};
+
+const calcAverageHumanAge =ages => ages
+.map(age => (age <=2 ? 2 * age : 16 + age *4))
+.filter(age => age >= 18)
+.reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+//adults.length
+
+const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+console.log(avg1, avg2);
