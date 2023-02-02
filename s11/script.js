@@ -61,26 +61,28 @@ const inputLoanAmount = document.querySelector('.login__input--loan--amount');
 const inputCloseUsername = document.querySelector('.login__input--user');
 const inputClosePin = document.querySelector('.login__input--pin');
 
-
+ 
 /////////////////////////////////////////////////
 // // // // // // Video 147 s11
-// const displayMovements = function (movements){
-//     containerMovements.innerHTML = '';
-//     // .textContent = 0
-//     movements.forEach(function(mov, i){
-//         const type = mov > 0 ? 'deposit' : 'withdrawal';
-//         const html = `
-        
-//             <div class="movements__row">
-//                 <div class="movemnts__type movemnts__type--${type}">${i+1} ${type}</div>
-//                 <div class="movemnts__value">${mov}</div>
-//             </div>
-//         `;
+const displayMovements = function (movements, sort =false){
+    containerMovements.innerHTML = '';
+    // .textContent = 0
 
-//         containerMovements.inserAdjacentHTML('afterbegin', html);
-//     });
-// };
-// displayMovements(account1.movements);
+    const movs =sort? movements.slice().sort((a,b) => a -b): movements;
+    movements.forEach(function(mov, i){
+        const type = mov > 0 ? 'deposit' : 'withdrawal';
+        const html = `
+        
+            <div class="movements__row">
+                <div class="movemnts__type movemnts__type--${type}">${i+1} ${type}</div>
+                <div class="movemnts__value">${mov}</div>
+            </div>
+        `;
+
+        containerMovements.inserAdjacentHTML('afterbegin', html);
+    });
+};
+displayMovements(account1.movements);
 
 const calsDisplaySummary = function(acc){
     const incomes = acc.movements
@@ -246,7 +248,13 @@ btnLogin.addEventListener('click', function(e){
 
 // });
 
+let sorted = false;
 
+btnSort.addEventListener('click', function(e){
+    e.preventDefault();
+    displayMovements(currentAccount.movements, !sorted);
+    sorted = !sorted;
+})
 ///////////////////////////////////////////////////
 /// LECTURES
 
@@ -599,3 +607,42 @@ const overalBalance2 = accounts
                 .flatMap(acc => acc.movements) 
                 .reduce((acc,mov) => acc + mov, 0);
 console.log(overalBalance2);
+
+
+
+
+// // // // // // // Video 163 s11
+
+//String 
+const owners = ['Doan', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
+
+// Numbers
+console.log(movements);
+
+// return < 0, A, B (keep order) 
+// return > 0, A, B (switch order)
+
+//Ascending
+// movements.sort((a, b) => {
+//     if (a > b)
+//     return 1
+//     if(b > a)
+//     return -1
+// });
+movements.sort((a,b) => a-b);
+console.log(movements);
+
+
+// Descending
+// movements.sort((a, b) => {
+//     if (a > b)
+//     return -1
+//     if(b > a)
+//     return 1
+// });
+// console.log(movements);
+
+movements.sort((a,b) => b -a);
+console.log(movements);
