@@ -106,9 +106,10 @@ const calsDisplaySummary = function(acc){
 // calcDisplaySummary(account1.movements);
 
 
-const calsDisplayBalance = function (movements){
+const calsDisplayBalance = function (acc){
     const balance = movements.reduce((acc, mov) => acc + mov, 0);
-    // labelBalance.textContent = `${balance} EUR`
+
+    // labelBalance.textContent = `${acc.balance = balance} EUR`
 };
 
 calsDisplayBalance(account1.movements);
@@ -133,6 +134,16 @@ const createUsernames = function(accs){
 // const user = 'Nguyen Van Doan'; //stw 
 
 createUsernames(accounts);
+const updateUI = function(acc){
+    // Display movements
+    displayMovemnts(currentAccount.movements);
+
+    // Display balance
+    calcDisplayBalance(currentAccount);
+
+    // Display summarry
+    calcDisplaySummary(currentAccount);
+}
 
 console.log(accounts);
 // console.log(createUsernames('Nguyen Van Doan'));
@@ -158,17 +169,44 @@ btnLogin.addEventListener('click', function(e){
         inputLoginUsername.value = inputLoginPin = '';
         inputLoginPin.blur();
 
+        updateUI(currentAccount)
+
         // Display movements
         displayMovemnts(currentAccount.movements);
 
         // Display balance
-        calcDisplayBalance(currentAccount.movements);
+        calcDisplayBalance(currentAccount);
 
         // Display summarry
         calcDisplaySummary(currentAccount);
     }
 });
 
+// // // // // // // Video 159 s11
+btnTransfer.addEventListener('click', function(e){
+    e.preventDefault();
+    const amount = Number(inputTransferAmount.value);
+    const receiverAcc = accounts.find(
+        acc => acc.username === inputTransferTo.value
+    );
+
+    inputTransferAmount.value = inputTransfer = '';
+    console.log(amount, receiverAcc);
+
+    if(
+        amount > 0 &&
+        receiverAcc &&
+        currentAccount.balance >= amount &&
+        receiverAcc?.username !== currentAccount.username
+    ){
+        // Doing the transfer
+        currentAccount.movements.push(-amount);
+        receiverAcc.movements.push(amount);
+
+        // Update UI
+        updateUI(currentAccount);
+    }
+});
 
 ///////////////////////////////////////////////////
 /// LECTURES
