@@ -1,4 +1,4 @@
-'use strict';
+'use strict';   
 
 ///////////////////////////////////////
 // Modal window
@@ -33,91 +33,126 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
-// // // // // // // Video 186 s13
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
-
-const header = document.querySelector('.header');
-const allSections = document.querySelectorAll('.section');
-console.log(allSections);
-
-document.getElementById('section--1');
-const allButtons = document.getElementsByTagName('button');
-console.log(allButtons);
-
-console.log(document.getElementsByClassName('btn'));
-
-// Creating and inserting elements
-const message = document.createElement('div');
-message.classList.add('.cookie-message');
-
-// message.textContent = 'We use cookied for improved functionality and analytics.';
-message.innerHTML =
-  'We use cookied for improved functionality and analytics. <button class= "btn--close--cookie"><Got it!</button>';
-
-// header.prepend(message);
-header.append(message);
-// header.append(message.cloneNode(true));
 
 
-// header.before(message);
-// header.after(message);
+// // // // // // // // Video 186 s13
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.body);
+
+// const header = document.querySelector('.header');
+// const allSections = document.querySelectorAll('.section');
+// console.log(allSections);
+
+// document.getElementById('section--1');
+// const allButtons = document.getElementsByTagName('button');
+// console.log(allButtons);
+
+// console.log(document.getElementsByClassName('btn'));
+
+// // Creating and inserting elements
+// const message = document.createElement('div');
+// message.classList.add('.cookie-message');
+
+// // message.textContent = 'We use cookied for improved functionality and analytics.';
+// message.innerHTML =
+//   'We use cookied for improved functionality and analytics. <button class= "btn--close--cookie"><Got it!</button>';
+
+// // header.prepend(message);
+// header.append(message);
+// // header.append(message.cloneNode(true));
 
 
-// Delete elements
-document
-  .querySelector('.btn--close-cookie')
-  .addEventListener('click', function(){
-    // message.remove();
-    messsage.parentElement.removeChild(message);
-  });
+// // header.before(message);
+// // header.after(message);
 
 
-// // // // // // // Video 187 s13
+// // Delete elements
+// document
+//   .querySelector('.btn--close-cookie')
+//   .addEventListener('click', function(){
+//     // message.remove();
+//     messsage.parentElement.removeChild(message);
+//   });
 
-// Styles
-message.style.backgroundColor = '#373383d';
-message.style.width = '120%';
 
-console.log(message.style.color);
-console.log(message.style.backgroundColor);
+// // // // // // // // Video 187 s13
 
-console.log(message.style.backgroundColor);
+// // Styles
+// message.style.backgroundColor = '#373383d';
+// message.style.width = '120%';
 
-console.log(getComputedStyle(message).height,10)+ 30 +'px';
+// console.log(message.style.color);
+// console.log(message.style.backgroundColor);
 
-document.documentElement.style.setProperty('--color-primary', 'orangered');
+// console.log(message.style.backgroundColor);
 
-// Attributes
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
+// console.log(getComputedStyle(message).height,10)+ 30 +'px';
 
-logo.alt = 'Beautiful minimalist logo';
+// document.documentElement.style.setProperty('--color-primary', 'orangered');
 
-// Non-standard
-console.log(logo.designer);
-console.log(logo.getAttribute('designer'));
-logo.setAttribute('company', 'Banklist');
+// // Attributes
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// console.log(logo.src);
+// console.log(logo.className);
 
-console.log(logo.src);
-console.log(logo.getAttribute('src'));
+// logo.alt = 'Beautiful minimalist logo';
 
-const link = document.querySelector('.nav__link--btn');
+// // Non-standard
+// console.log(logo.designer);
+// console.log(logo.getAttribute('designer'));
+// logo.setAttribute('company', 'Banklist');
 
-console.log(link.href);
-console.log(link.getAttribute('href'));
+// console.log(logo.src);
+// console.log(logo.getAttribute('src'));
 
-// Data attributes
-console.log(logo.dataset.versionNumber);
+// const link = document.querySelector('.nav__link--btn');
 
-// Classses
-logo.classList.add('c', 'j');
-logo.classList.remove('c', 'j');
-logo.classList.toggle('c');
-logo.classList.contains('c'); //not includes
+// console.log(link.href);
+// console.log(link.getAttribute('href'));
 
-// Don't use
-logo.className = 'jonas';
+// // Data attributes
+// console.log(logo.dataset.versionNumber);
+
+// // Classses
+// logo.classList.add('c', 'j');
+// logo.classList.remove('c', 'j');
+// logo.classList.toggle('c');
+// logo.classList.contains('c'); //not includes
+
+// // Don't use
+// logo.className = 'jonas';
+
+
+// // // // // // // // Video 188 s13
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  console.log('Current scroll (X/Y)', window.pageXOffset, pageYOffset);
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+  
+  // Crolling
+  // window.scrollTo(
+  //     s1coords.left + window.pageXOffset,
+  //     s1coords.top + window.pageYOffset
+  // );
+
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // })
+  section1.scrollIntoView({ behavior: 'smooth'});
+});
