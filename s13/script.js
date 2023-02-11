@@ -6,6 +6,11 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
+
+const nav = document.querySelector('.nav');
+const tabs = document.querySelectorAll('.openrations__tab');
+const tabsContainer = document.querySelector('.openrations__tab-container');
+const tabsContent = document.querySelectorAll('.openrations__content');
 ///////////////////////////////////////
 // Modal window
 
@@ -175,35 +180,57 @@ document.addEventListener('keydown', function (e) {
 
 // // // // // // // // // Video 194 s13
 // Tabbed componnent
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('operations__content');
+// const tabs = document.querySelectorAll('.operations__tab');
+// const tabsContainer = document.querySelector('.operations__tab-container');
+// const tabsContent = document.querySelectorAll('operations__content');
 
-tabsContainer.addEventListener('click', function(e){
-  const clicked = e.target.closest('.operations__tab');
-  console.log(clicked);
+// tabsContainer.addEventListener('click', function(e){
+//   const clicked = e.target.closest('.operations__tab');
+//   console.log(clicked);
   
-  // Guard clause
-  if(!clicked) return;
+//   // Guard clause
+//   if(!clicked) return;
 
-  // Remove active classes 
+//   // Remove active classes 
 
-  tabs.forEach(t => t.classList.remove('operations__tab--active'));
-  tabsContent.forEach(c=> c.classList.remove('operations__tab--active'));
+//   tabs.forEach(t => t.classList.remove('operations__tab--active'));
+//   tabsContent.forEach(c=> c.classList.remove('operations__tab--active'));
   
-  // Active tab 
-  clicked.classList.add('operations__tab--active');
+//   // Active tab 
+//   clicked.classList.add('operations__tab--active');
 
 
-  // Activate content area
-  console.log(clicked.dataset.tab);
-  document
-    .querySelector(`.operations__content--${clicked.dataset.tab}`)
-    .classList.add('operations_content--active');
+//   // Activate content area
+//   console.log(clicked.dataset.tab);
+//   document
+//     .querySelector(`.operations__content--${clicked.dataset.tab}`)
+//     .classList.add('operations_content--active');
 
 
-});
+// });
 
+
+// // // // // // // // // Video 195 s13
+
+// Menu fade animation 
+const handleHover = function(e, opacity){
+
+  if(e.target.classList.contains('.nav__link')){
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach(el => {
+      if(el !== link) el.style.opacity = opacity = this;
+    });
+    logo.style.opacity = opacity = this;
+  }
+}
+
+
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+
+nav.addEventListener('mouseout', handleHover.bind(1));
 
 
 // Thêm trình xử lý sự kiện vào phần tử mẹ chung
