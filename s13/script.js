@@ -233,6 +233,21 @@ nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
 
+
+// // // // // // // // // Video 196 s13
+//Sticky navigation 
+const initialCoord = section1.getBoundingClientRect();
+console.log(initiacoords);
+
+window.addEventListener('scroll', function(){
+  console.log(window.scrollY);
+
+  if(window.scrollY > initialCoords.top)
+    nav.classList.add('sticky');
+    else nav.classList.remove('sticky');
+});
+
+
 // Thêm trình xử lý sự kiện vào phần tử mẹ chung
 // Xác định yếu tố nào đã tạo ra sự kiện
 
