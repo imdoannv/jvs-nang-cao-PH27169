@@ -236,16 +236,16 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 
 // // // // // // // // // Video 196 s13
 //Sticky navigation 
-const initialCoord = section1.getBoundingClientRect();
-console.log(initiacoords);
+// const initialCoord = section1.getBoundingClientRect();
+// console.log(initiacoords);
 
-window.addEventListener('scroll', function(){
-  console.log(window.scrollY);
+// window.addEventListener('scroll', function(){
+//   console.log(window.scrollY);
 
-  if(window.scrollY > initialCoords.top)
-    nav.classList.add('sticky');
-    else nav.classList.remove('sticky');
-});
+//   if(window.scrollY > initialCoords.top)
+//     nav.classList.add('sticky');
+//     else nav.classList.remove('sticky');
+// });
 
 
 // Thêm trình xử lý sự kiện vào phần tử mẹ chung
@@ -335,3 +335,58 @@ console.log(h1.parentElement.children);
 [...h1.parentElement.children].forEach(function (el){
   if (el !== h1) el.style.transfrom = 'scale(0.5)';
 });
+
+
+// // // // // // // // // Video 200 s13
+// const imgObserver = new IntersectionObserver(loadImg,{
+//   root: null,
+//   threshold: 0,
+//   rootMargin: '200px',
+// });
+
+// imgTargets.forEach(img => imgObserver.obserer(img));
+
+// Sliber
+const slides = document.querySelectorAll('.slide');
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right')
+
+let curSlide = 0;
+const maxSlide = slides.length;
+
+// const slider = document.querySelector('.slider');
+// slider.style.transfrom = 'scale(0.4) translateX(-800px)';
+// slider.style.overflow = 'visible' ;
+
+slides.forEach((s, i) => (s.style.transfrom = `translateX(${100 * i}%)`));
+
+// const goToSlide = function(slide){
+//   slide.forEach(
+//    (s,i) => (s.style.transfrom = `translateX(${100 * (i - slide)})`)
+//   )
+// }
+
+// goToSlide(0);
+
+// Next slide
+const nextSlide =  function(){
+  if(curSlide == maxSlide -1){
+    curSlide = 0;
+  }else{
+    curSlide++;
+  }
+
+  goToSlide(curSlide);
+};
+
+const prevSlide = function(){
+  if(curSlide === 0){
+    curSlide = maxSlide -1;
+  }else{
+    curSlide--
+  }
+  goToSlide(curSlide);
+}
+
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
