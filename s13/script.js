@@ -347,9 +347,11 @@ console.log(h1.parentElement.children);
 // imgTargets.forEach(img => imgObserver.obserer(img));
 
 // Sliber
+const slider = function(){};
 const slides = document.querySelectorAll('.slide');
 const btnLeft = document.querySelector('.slider__btn--left');
-const btnRight = document.querySelector('.slider__btn--right')
+const btnRight = document.querySelector('.slider__btn--right');
+const dotContainer = document.querySelector('dots');
 
 let curSlide = 0;
 const maxSlide = slides.length;
@@ -359,6 +361,35 @@ const maxSlide = slides.length;
 // slider.style.overflow = 'visible' ;
 
 slides.forEach((s, i) => (s.style.transfrom = `translateX(${100 * i}%)`));
+
+const createDots = function(){
+  slides.forEach(function(_, i){
+    dotContainer.insertAdjacentHTML(
+      'beforeed',
+    `<button class="dots__dot" data-slide="${i}"></butoon>`
+    );
+  });
+};
+createDots();
+
+const activateDot = function (slide){
+  document
+    .querySelectorAll('.dots__dot')
+    .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--avtive');
+};
+activateDot(0);
+
+const goToSlide = function(slide){
+  slides.forEach(
+    (s, i) => (s.style.transfrom = `translateX(${100 * (i - slide)}$)`)
+  );
+};
+goToSlide(0)
+
 
 // const goToSlide = function(slide){
 //   slide.forEach(
@@ -386,7 +417,31 @@ const prevSlide = function(){
     curSlide--
   }
   goToSlide(curSlide);
+  activateDot(curSlide);
 }
+
+const init = function(){
+  goToSlide (0);
+}
+init();
 
 btnRight.addEventListener('click', nextSlide);
 btnLeft.addEventListener('click', prevSlide);
+
+
+
+// // // // // // // // // Video 201 s13
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'ArrowLeft') prevSlide();
+  e.key === 'ArrowRight' && nextSlide();
+});
+
+dotContainer.addEventListener('click', function(e){
+  if(e.target.classList.contains('dots__dot')){
+    const {slide} = e.target.dataset;
+    goToSlide(slide);
+    activateDot(slide)
+  }
+});
+slider();
