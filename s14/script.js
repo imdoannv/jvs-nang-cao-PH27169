@@ -1,5 +1,5 @@
 // // // // // // // // // Video 208 s14
-'use strict';
+'use strict'; 
 constPerson = function(firstName, birthYear) {
     // Instance properties 
     this.firstName = firstName;
